@@ -20,14 +20,17 @@ jobs:
         python -m venv --clear venv
         source ./venv/bin/activate
         pwd
-    - name: Install python dependencies
-      run: |
-        pip install --upgrade pip
-        pip install -r requirements.txt -i  https://pypi.tuna.tsinghua.edu.cn/simple
-    - name: cd
-      run: |
-        cd e2e_tests
-    - name: run test
-      run: |
-        python -m pytest -s -q
+        ls -a
+    # - name: Install python dependencies
+    #   run: |
+    #     pip install --upgrade pip
+    #     pip install -r requirements.txt -i  https://pypi.tuna.tsinghua.edu.cn/simple
+    # - name: cd
+    #   run: |
+    #     cd e2e_tests
+    #     pwd
+    # - name: run test
+    #   run: |
+    #     # python -m pytest -s -q
+
       
