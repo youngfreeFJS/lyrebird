@@ -8,8 +8,6 @@ curPath = os.path.abspath(os.path.dirname(__file__))
 def setup_module():
     os.system("nohup python serve.py > /dev/null 2>&1 & ")
     os.system("nohup lyrebird -b > /dev/null 2>&1 & ")
-    os.system("pip list | grep lyrebird")
-    os.system("pip list | grep lyrebird")
     print("init serve")
     time.sleep(3)
 
@@ -35,40 +33,4 @@ class TestSuite:
         print(requests.post(serve_uri,data="1").text)
         print(requests.post(uri,data="1").status_code)
         print(requests.post(uri,data="1").text)
-    #     with open(f"{curPath}/1.png", "rb") as f:
-    #         data = f.read()
-    #     r = requests.post(url=uri, data=data)
-    #     assert r.text == hashlib.md5(serve_uri.encode() + data).hexdigest()
-
-    # def test_img_file(self):
-    #     files = {'file': ('1.png', open(f'{curPath}/1.png', 'rb'), 'image/jpg')}
-    #     r = requests.post(uri, files=files)
-    #     with open(f'{curPath}/1.png', 'rb') as f:
-    #         data = f.read()
-    #     assert r.text == hashlib.md5(serve_uri.encode() + data).hexdigest()
     
-    # def test_json(self):
-    #     data = json.dumps({"name": {"12": 123}})
-    #     headers = {"Content-Type": "application/json"}
-    #     r = requests.post(url=uri, data=data, headers=headers)
-    #     assert r.text == hashlib.md5(serve_uri.encode() + data.encode()).hexdigest()
-
-    # def test_text(self):
-    #     data = "asdasdasd"
-    #     headers = {"Content-Type": "text/plain"}
-    #     r = requests.post(url=uri, data=data, headers=headers)
-    #     assert r.text == hashlib.md5(serve_uri.encode() + data.encode()).hexdigest()
-
-    # def test_form(self):
-    #     data = {"a":"a","b":"b"}
-    #     headers = {"Content-Type": "application/x-www-form-urlencoded"}
-    #     r = requests.post(url=uri, data=data, headers=headers)
-    #     assert r.text == hashlib.md5(serve_uri.encode() + json.dumps(data).encode()).hexdigest()
-
-    # def test_json_gzip(self):
-    #     data = {"a": 1}
-    #     ziped_data = gzip.compress(json.dumps(data).encode())
-    #     headers = {"Content-Type": "application/json", "Content-Encoding": "gzip"}
-    #     r = requests.post(url=uri, data=ziped_data, headers=headers)
-    #     assert r.text == hashlib.md5(serve_uri.encode() + ziped_data).hexdigest()
-

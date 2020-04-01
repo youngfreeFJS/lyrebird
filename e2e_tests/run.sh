@@ -2,4 +2,4 @@
 
 source ../venv/bin/activate
 
-python -m pytest -s -q
+pytest -v -s ./test_lb_req_body.py
