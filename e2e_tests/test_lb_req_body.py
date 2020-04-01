@@ -7,11 +7,8 @@ curPath = os.path.abspath(os.path.dirname(__file__))
 
 def setup_module():
     os.system("nohup python serve.py > /dev/null 2>&1 & ")
-    os.system("nohup ../venv/bin/lyrebird -b > /dev/null 2>&1 & ")
+    os.system("nohup lyrebird -b > /dev/null 2>&1 & ")
     os.system("pip list | grep lyrebird")
-    print("=============================================================================")
-    os.system("ps | grep lyrebird")
-    os.system("ps | grep serve.py")
     print("init serve")
     time.sleep(3)
 
@@ -21,7 +18,7 @@ def teardown_module():
         "ps -ef|grep serve.py | grep -v grep|awk '{printf $2}'|xargs kill -9"
     )
     os.system(
-        "ps -ef|grep ../venv/bin/lyrebird | grep -v grep|awk '{printf $2}'|xargs kill -9"
+        "ps -ef|grep lyrebird | grep -v grep|awk '{printf $2}'|xargs kill -9"
     )
     print("teardown")
 
