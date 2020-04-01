@@ -6,11 +6,12 @@ curPath = os.path.abspath(os.path.dirname(__file__))
 
 
 def setup_module():
-    os.system("source ../venv/bin/activate")
-    os.system("which python")
     os.system("nohup python serve.py > /dev/null 2>&1 & ")
     os.system("nohup ../venv/bin/lyrebird -b > /dev/null 2>&1 & ")
     os.system("pip list | grep lyrebird")
+    print("=============================================================================")
+    os.system("ps | grep lyrebird")
+    os.system("ps | grep serve.py")
     print("init serve")
     time.sleep(3)
 
