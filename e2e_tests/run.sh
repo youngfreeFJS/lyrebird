@@ -8,7 +8,7 @@ nohup lyrebird -b > /dev/null 2>&1 &
 
 sleep 3
 
-pytest -v -s ./test_lb_req_body.py
+pytest -v -s 
 
 ps -ef|grep serve.py | grep -v grep|awk '{printf $2}'|xargs kill -9
 
