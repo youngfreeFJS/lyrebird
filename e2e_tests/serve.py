@@ -1,5 +1,6 @@
 from flask import Flask, request
 import hashlib,json
+from urllib.parse import urlencode, parse_qs
 
 app = Flask(__name__)
 
@@ -8,7 +9,6 @@ app = Flask(__name__)
 def e2e_test():
 
     req_body = request.get_data()
-    print(req_body) 
     if request.files and "file" in request.files:
         req_body = request.files['file'].read()
         return hashlib.md5(request.url.encode() + req_body).hexdigest()

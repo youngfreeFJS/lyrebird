@@ -17,27 +17,8 @@ jobs:
         python-version: '3.6'
     - name: add venv
       run: |
-        python -m venv --clear venv
-        source ./venv/bin/activate
         pwd
-        ls -a
-
-    - name: Install python dependencies
-      run: |
-        pip install --upgrade pip
-        pip install -r requirements.txt -i  https://pypi.tuna.tsinghua.edu.cn/simple
-    - name: cd
-      run: |
         cd e2e_tests
         pwd
-    - name: run test
-      run: |
-        nohup python serve.py > /dev/null 2>&1 & 
-        nohup lyrebird -b > /dev/null 2>&1 & 
-        sleep 3
-        pytest -v -s 
-        ps -ef|grep serve.py | grep -v grep|awk '{printf $2}'|xargs kill -9
-        ps -ef|grep lyrebird | grep -v grep|awk '{printf $2}'|xargs kill -9
-
-
+        
       
