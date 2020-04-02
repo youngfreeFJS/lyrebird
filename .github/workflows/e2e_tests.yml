@@ -20,5 +20,9 @@ jobs:
         pwd
         cd e2e_tests
         pwd
+        ls -a
+        python3 -m venv --clear ../venv
+        ls -a
+
         
       
