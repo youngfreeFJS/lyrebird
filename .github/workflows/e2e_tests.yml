@@ -18,10 +18,12 @@ jobs:
     - name: add venv
       run: |
         pwd
+        ls -a
         cd e2e_tests
         pwd
-        ls -a
+        
         python3 -m venv --clear ../venv
+        cd ..
         ls -a
 
         
