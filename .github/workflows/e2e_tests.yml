@@ -32,6 +32,6 @@ jobs:
         pwd
     - name: run test
       run: |
-        pytest -v -s ./test_lb_req_body.py
+        pytest -v -s test_lb_req_body.py
 
       
