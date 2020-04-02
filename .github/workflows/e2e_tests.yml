@@ -25,6 +25,10 @@ jobs:
         python3 -m venv --clear ../venv
         cd ..
         ls -a
+    - name: install dependency
+      run: |
+        source ../venv/bin/activate
+        which python
 
         
       
