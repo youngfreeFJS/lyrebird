@@ -32,12 +32,6 @@ jobs:
         cd e2e_tests
         python -m pytest .
 
-    - name: run unit test
-      run: |
-        cd ../tests
-        ls -a
-        python -m pytest .
-
 
         
         
