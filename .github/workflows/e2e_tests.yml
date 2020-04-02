@@ -20,14 +20,14 @@ jobs:
         pwd
         ls -a
         cd e2e_tests
-        pwd
-        
-        python3 -m venv --clear ../venv
-        
+        pwd        
     - name: install dependency
       run: |
-        source ../venv/bin/activate
-        which python
+        pwd
+        pip install --upgrade pip
+        pip install -e [dev]
+        pwd
+        ls -a
 
         
       
