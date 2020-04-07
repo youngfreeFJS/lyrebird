@@ -3,6 +3,7 @@ import json
 import os
 import re
 import uuid
+import shutil
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -535,6 +536,32 @@ class DataManager:
         self._save_prop()
         if self.activated_data.get(_id):
             self.activate(_id)
+    
+    def import_snapshot(self, _group_id):
+        import_data_base = '/Users/youngfree/Desktop/ly/demo/import_demo2/iptdemo2/data/'
+        with codecs.open(f"{import_data_base}.lyrebird_prop", 'r') as f:
+            import_json = json.load(f)
+        node = self.id_map.get(_group_id)
+        import_json = import_json["children"][0]
+        import_json["parent_id"] = _group_id
+
+        print(f"node \n {node}")
+        print(f"import_json \n {import_json}")
+        
+        # #TODO 按照具体的被导入的prop文件内容修改
+        if "children" not in node:
+            node["children"] = []
+        else:
+            node["children"].append(import_json)
+
+        self._save_prop()
+        
+        data_list = os.listdir(import_data_base)
+        for data_item in data_list:
+            if data_item is not ".lyrebird_prop":
+                shutil.copy(f'{import_data_base}{data_item}',self.root_path)
+        return import_json
+
 
 
 # -----------------
